@@ -1,0 +1,145 @@
+:root {
+    --primary-color: #123c4a;
+    --secondary-color: #2f7d8c;
+    --accent1-color: #f4a261;
+    --accent2-color: #f5f7f2;
+    --heading-font: Georgia, "Times New Roman", serif;
+    --body-font: Arial, Helvetica, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--body-font);
+    color: var(--primary-color);
+    background-color: var(--accent2-color);
+}
+
+header,
+main,
+footer {
+    width: 840px;
+    margin: 0 auto;
+}
+
+h1,
+h2 {
+    font-family: var(--heading-font);
+    color: var(--primary-color);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+}
+
+header nav {
+    display: flex;
+    gap: 8px;
+}
+
+nav {
+    margin: 0;
+    padding: 8px;
+}
+
+nav a {
+    padding: 8px 12px;
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: var(--secondary-color);
+}
+
+p {
+    margin: 8px 0;
+    padding: 4px;
+    line-height: 1.5;
+}
+
+section {
+    margin: 24px 0;
+    padding: 16px;
+}
+
+section h2 {
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+article {
+    margin: 16px;
+    padding: 16px;
+}
+
+.hero {
+    position: relative;
+}
+
+.hero > img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.hero h1 {
+    position: absolute;
+    top: 24px;
+    width: 100%;
+    padding: 16px;
+    text-align: center;
+    color: var(--accent2-color);
+    background-color: rgb(18 60 74 / 85%);
+}
+
+.hero article {
+    position: absolute;
+    right: 32px;
+    bottom: 24px;
+    left: 32px;
+    border: 2px solid var(--accent1-color);
+    color: var(--primary-color);
+    background-color: rgb(245 247 242 / 90%);
+}
+
+.hero article img {
+    float: right;
+    width: 125px;
+    margin-left: 16px;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-top: 2px solid var(--secondary-color);
+}
+
+.socialmedia {
+    display: flex;
+    gap: 8px;
+}
+
+.socialmedia a {
+    text-decoration: none;
+}
+
+.socialmedia img {
+    width: 36px;
+    height: 36px;
+}
