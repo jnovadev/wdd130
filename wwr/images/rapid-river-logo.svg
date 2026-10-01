@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100">
+  <rect width="120" height="100" rx="6" fill="#ffffff"/>
+  <text x="60" y="16" fill="#123c4a" font-family="Arial, sans-serif" font-size="10" font-weight="700" text-anchor="middle">RAPID RIVER</text>
+  <circle cx="60" cy="49" r="31" fill="#123c4a"/>
+  <path d="M34 42c9-7 18-7 27 0s18 7 27 0M34 53c9-7 18-7 27 0s18 7 27 0M39 64c7-5 14-5 21 0s14 5 21 0" fill="none" stroke="#f5f7f2" stroke-linecap="round" stroke-width="4"/>
+  <path d="M85 25 44 72" stroke="#f4a261" stroke-linecap="round" stroke-width="3"/>
+  <path d="m42 70-6 9 10-4" fill="#f4a261"/>
+  <text x="60" y="94" fill="#123c4a" font-family="Arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle">RAFTING</text>
+</svg>

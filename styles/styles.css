@@ -4,30 +4,60 @@
     box-sizing: border-box;
 }
 
+main{
+    margin: 1rem;
+    grid-column: 2;
+    display: block;
+}
+
+header, footer {
+  max-width: 840px;
+  margin: 0 auto;
+}
+
 body {
     font-size: 16px;
     font-family: Roboto, Arial, sans-serif;
 }
 
 nav {
-    background-color: steelblue;
-    padding: 10px;
+  background-color: steelblue;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 nav a {
-    display: block;
-    color: white;
-    font-weight: bold;
-    padding: 10px;
+  display: block;
+  padding: 0.5rem;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff; 
+}
+
+.grid {
+    display: grid;
+    align-items: center;
 }
 
 h1 {
     color: steelblue;
 }
 
-main {
-    max-width: 840px;
+h2 {
+    display: block;
+    font-size: 1.5rem;
+    margin-block-start: 0.83rem;
+    margin-block-end: 0.83rem;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
 }
+
+
 
 main img {
     width: 150px;
@@ -45,9 +75,16 @@ p {
 
 aside {
     width: 20em;
-    text-align: center;
     position: relative;
+    grid-column: 1;
+    grid-row: 1;
 }
+
+aside h2 {
+    position: absolute;
+    top: 85px;
+    left: 125px;    
+}   
 
 aside img {
     width: 200px;
@@ -71,4 +108,14 @@ footer {
 
 .indent {
     padding-left: 2rem;
+}
+
+header, .grid, footer {
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+h1 {
+  color: steelblue;
+  border-bottom: 1px solid steelblue;
 }
