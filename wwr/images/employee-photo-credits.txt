@@ -1,0 +1,11 @@
+Stock portraits from Unsplash used as fictional employee profiles for this course project.
+Downloaded as optimized 320 x 320 JPEG images.
+
+employee-guide.jpg
+https://images.unsplash.com/photo-1500648767791-00dcc994a43e
+
+employee-reservations.jpg
+https://images.unsplash.com/photo-1580489944761-15a19d654956
+
+employee-manager.jpg
+https://images.unsplash.com/photo-1506794778202-cad84cf45f1d
