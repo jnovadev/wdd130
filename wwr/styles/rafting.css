@@ -183,7 +183,6 @@ button:hover {
     text-transform: uppercase;
 }
 
-/* Position the headings over the full-width hero images. */
 .hero {
     position: relative;
 }
@@ -344,7 +343,6 @@ textarea {
     resize: vertical;
 }
 
-/* About Us: mission overlay, history columns, and five-photo gallery. */
 .about-hero article {
     position: absolute;
     right: 32px;
@@ -405,7 +403,6 @@ figcaption {
     font-size: 0.9rem;
 }
 
-/* Trips: detailed cards and a complete comparison table. */
 .page-intro {
     padding: 48px 32px;
     background-color: var(--accent2-color);
@@ -544,7 +541,6 @@ tbody tr:nth-child(even) {
     flex-shrink: 0;
 }
 
-/* Contact information and form share two columns on desktop. */
 .contact-grid {
     padding: 40px 32px;
 }
