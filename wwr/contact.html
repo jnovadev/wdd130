@@ -12,9 +12,13 @@
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header>
-        <img class="logo" src="images/rapid-river-logo.png" alt="Rapid River Rafting logo">
-        <nav>
+        <a class="brand" href="index.html" aria-label="Rapid River Rafting home">
+            <img class="logo" src="images/rapid-river-logo.png" alt="Rapid River Rafting logo"
+              width="120" height="100">
+        </a>
+        <nav aria-label="Main navigation">
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
             <a href="trips.html">Trips</a>
@@ -22,22 +26,33 @@
         </nav>
     </header>
 
-    <main>
-        <div class="contact-info">
+    <main id="main-content">
+        <div class="page-intro">
+            <p class="eyebrow">Your next adventure starts with a conversation</p>
             <h1>Contact Rapid River Rafting</h1>
-            <address>
-                123 Main River Street<br>
-                Kolob, California<br>
-                <a href="tel:+19999999999">+1 999 999 9999</a><br>
-                <a href="mailto:info@whitewater.com">info@whitewater.com</a>
-            </address>
+            <p>Have a trip in mind? Ask about dates, group adventures, or your first day on the river.</p>
         </div>
 
         <div class="contact-grid">
-            <iframe class="contact-map"
-              src="https://www.google.com/maps?q=California%2C%20USA&amp;z=6&amp;output=embed"
-              title="Google map of California" width="400" height="450" loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            <section class="contact-info" aria-labelledby="find-us-heading">
+                <h2 id="find-us-heading">Get in touch</h2>
+                <address>
+                    123 Main River Street<br>
+                    Kolob, California<br>
+                    <a href="tel:+19999999999">+1 999 999 9999</a><br>
+                    <a href="mailto:info@whitewater.com">info@whitewater.com</a>
+                </address>
+                <p>Let us know your group size, preferred dates, and rafting experience so we can
+                    help you choose a trip.</p>
+                <p>Confirm your meeting point with our team before traveling.</p>
+                <details class="map-panel">
+                    <summary>View the California area map</summary>
+                    <iframe class="contact-map"
+                      src="https://www.google.com/maps?q=California%2C%20USA&amp;z=6&amp;output=embed"
+                      title="Google map of California" width="400" height="300" loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+                </details>
+            </section>
 
             <form class="contact-form" action="contact.html" method="get">
                 <h2>Send Us a Message</h2>
@@ -107,16 +122,10 @@
 
     <footer>
         <p>&copy; 2026 | Rapid River Rafting | Jonathan Reyes</p>
-        <nav class="socialmedia">
-            <a href="https://facebook.com">
-                <img src="images/facebook.png" alt="Facebook icon">
-            </a>
-            <a href="https://linkedin.com">
-                <img src="images/linkedin.png" alt="LinkedIn icon">
-            </a>
-            <a href="https://instagram.com">
-                <img src="images/instagram.png" alt="Instagram icon">
-            </a>
+        <nav class="socialmedia" aria-label="Social media">
+            <a href="https://facebook.com"><img src="images/facebook.png" alt="Facebook" width="36" height="36"></a>
+            <a href="https://linkedin.com"><img src="images/linkedin.png" alt="LinkedIn" width="36" height="36"></a>
+            <a href="https://instagram.com"><img src="images/instagram.png" alt="Instagram" width="36" height="36"></a>
         </nav>
     </footer>
 </body>

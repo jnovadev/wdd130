@@ -3,6 +3,7 @@
     --secondary-color: #256575;
     --accent1-color: #f4a261;
     --accent2-color: #f5f7f2;
+    --surface-color: #dbe7e6;
     --heading-font: Georgia, "Times New Roman", serif;
     --body-font: Arial, Helvetica, sans-serif;
 }
@@ -17,232 +18,576 @@ body {
     font-family: var(--body-font);
     color: var(--primary-color);
     background-color: var(--accent2-color);
+    line-height: 1.6;
 }
 
 header,
 main,
 footer {
-    width: min(100%, 840px);
+    width: min(100%, 1024px);
     margin: 0 auto;
 }
 
+main {
+    background-color: #fff;
+}
+
 h1,
-h2 {
+h2,
+h3 {
     font-family: var(--heading-font);
+    line-height: 1.15;
+}
+
+h1 {
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+}
+
+h2 {
+    font-size: clamp(1.65rem, 3vw, 2.2rem);
+}
+
+h3 {
+    font-size: 1.45rem;
+}
+
+p + p {
+    margin-top: 12px;
+}
+
+a {
     color: var(--primary-color);
+    text-underline-offset: 4px;
+}
+
+a:hover {
+    text-decoration-thickness: 2px;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+section {
+    padding: 48px 32px;
+}
+
+section > h2 {
+    margin-bottom: 24px;
 }
 
 header {
     display: grid;
-    grid-template-columns: 140px 1fr;
+    grid-template-columns: 120px 1fr;
     align-items: center;
-    gap: 24px;
-    padding: 16px 24px;
-    background-color: #dbe7e6;
+    gap: 32px;
+    padding: 16px 32px;
+    background-color: var(--surface-color);
+}
+
+.brand {
+    display: block;
+    width: fit-content;
 }
 
 .logo {
-    width: 120px;
-    height: auto;
+    width: 96px;
 }
 
 header nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
-    gap: 4px;
-}
-
-nav {
-    margin: 0;
-    padding: 8px;
-}
-
-nav a {
-    padding: 8px 12px;
-    color: var(--primary-color);
-    font-weight: bold;
-    text-decoration: none;
-}
-
-nav a:hover {
-    color: var(--secondary-color);
-}
-
-header nav a {
-    display: block;
-    text-align: center;
-}
-
-p {
-    margin: 8px 0;
-    padding: 4px;
-    line-height: 1.5;
-}
-
-section {
-    margin: 24px 0;
-    padding: 16px;
-}
-
-section h2 {
-    margin-bottom: 16px;
-    text-align: center;
-}
-
-.history,
-.adventures,
-.employees {
-    border: 1px solid #cbd9d8;
-    background-color: #fff;
-}
-
-.history-grid {
-    display: grid;
-    grid-template-columns: 1fr 180px 1fr;
-    align-items: center;
-    gap: 16px;
-}
-
-.history-grid img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-.adventure-grid {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 12px;
 }
 
-.adventure-grid figure,
-.employee-grid figure {
-    min-width: 0;
+header nav a {
+    padding: 10px 16px;
+    border-bottom: 3px solid transparent;
+    font-weight: bold;
     text-align: center;
+    text-decoration: none;
 }
 
-.adventure-grid img {
-    display: block;
-    width: 100%;
-    height: 110px;
-    object-fit: cover;
+header nav a:hover,
+header nav a[aria-current="page"] {
+    border-bottom-color: var(--primary-color);
+    background-color: #fff;
 }
 
-.adventure-grid figcaption {
-    padding-top: 8px;
-    font-size: 0.9rem;
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 16px;
+    z-index: 10;
+    padding: 12px 20px;
+    background-color: #fff;
+    font-weight: bold;
 }
 
-article {
-    margin: 16px;
-    padding: 16px;
+.skip-link:focus {
+    top: 12px;
 }
 
+:focus-visible {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 4px;
+}
+
+.button,
+button {
+    display: inline-block;
+    padding: 12px 22px;
+    border: 2px solid var(--primary-color);
+    border-radius: 3px;
+    color: #fff;
+    background-color: var(--primary-color);
+    font: inherit;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button:hover,
+button:hover {
+    background-color: var(--secondary-color);
+}
+
+.button-accent {
+    border-color: var(--accent1-color);
+    color: var(--primary-color);
+    background-color: var(--accent1-color);
+}
+
+.button-accent:hover {
+    border-color: #fff;
+    background-color: #fff;
+}
+
+.button-accent:focus-visible {
+    outline-color: #fff;
+}
+
+.text-link {
+    font-weight: bold;
+}
+
+.eyebrow {
+    margin-bottom: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+/* Position the headings over the full-width hero images. */
 .hero {
     position: relative;
 }
 
 .hero > img {
-    display: block;
     width: 100%;
-    height: auto;
 }
 
 .hero h1 {
     position: absolute;
     top: 24px;
     width: 100%;
-    padding: 16px;
+    padding: 20px;
+    color: #fff;
+    background-color: var(--primary-color);
     text-align: center;
-    color: var(--accent2-color);
-    background-color: rgb(18 60 74 / 85%);
 }
 
-.hero article {
+.home-hero > img {
+    height: 510px;
+    object-fit: cover;
+    object-position: 65% center;
+}
+
+.home-hero::before {
     position: absolute;
-    right: 32px;
-    bottom: 24px;
+    inset: 0 auto 0 0;
+    width: 55%;
+    background-color: rgb(18 60 74 / 96%);
+    content: "";
+}
+
+.home-hero h1 {
+    top: 64px;
     left: 32px;
-    border: 2px solid var(--accent1-color);
-    color: var(--primary-color);
-    background-color: rgb(245 247 242 / 90%);
+    width: 48%;
+    padding: 0;
+    background-color: transparent;
+    text-align: left;
 }
 
-.hero article img {
-    float: right;
-    width: 125px;
-    margin-left: 16px;
+.hero-invite {
+    position: absolute;
+    bottom: 56px;
+    left: 32px;
+    width: 46%;
+    color: #fff;
 }
 
-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 12px 24px;
-    border-top: 2px solid var(--secondary-color);
-    background-color: #dbe7e6;
+.hero-invite p {
+    margin-bottom: 24px;
+    max-width: 38ch;
+    font-size: 1.05rem;
 }
 
-.socialmedia {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-left: auto;
-}
-
-.socialmedia a {
-    text-decoration: none;
-}
-
-.socialmedia img {
-    display: block;
-    width: 36px;
-    height: 36px;
-}
-
-.contact-info {
-    padding: 24px 16px 0;
+.river-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 18px 24px;
+    background-color: var(--surface-color);
+    font-size: 0.85rem;
+    font-weight: bold;
     text-align: center;
 }
 
-.contact-info h1 {
-    margin-bottom: 12px;
+.river-strip p {
+    margin: 0;
 }
 
-.contact-info address {
-    font-style: normal;
-    line-height: 1.6;
+.section-heading {
+    max-width: 620px;
+    margin-bottom: 28px;
 }
 
-.contact-info a {
-    color: var(--primary-color);
-    text-underline-offset: 3px;
+.section-heading h2,
+.newsletter h2,
+.contact-cta h2 {
+    margin-bottom: 16px;
 }
 
+.offerings-grid,
+.newsletter,
+.trip-preparation,
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 32px;
-    padding: 24px 16px 0;
+}
+
+.offering {
+    display: grid;
+    grid-template-columns: 38% minmax(0, 1fr);
+    gap: 20px;
+}
+
+.offering img {
+    width: 100%;
+    height: 100%;
+    min-height: 240px;
+    object-fit: cover;
+}
+
+.offering h3,
+.offering p {
+    margin-bottom: 14px;
+}
+
+.offering p,
+.offering a {
+    font-size: 0.9rem;
+}
+
+.newsletter {
+    align-items: center;
+    background-color: var(--surface-color);
+}
+
+.newsletter-form,
+.contact-form,
+.field,
+.message-field {
+    display: grid;
+    gap: 10px;
+}
+
+.newsletter-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.newsletter-form button {
+    grid-column: 1 / -1;
+}
+
+label,
+legend {
+    font-weight: bold;
+}
+
+input,
+textarea {
+    font: inherit;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 10px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 3px;
+    color: var(--primary-color);
+    background-color: #fff;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* About Us: mission overlay, history columns, and five-photo gallery. */
+.about-hero article {
+    position: absolute;
+    right: 32px;
+    bottom: 32px;
+    left: 32px;
+    display: flow-root;
+    padding: 20px;
+    border-left: 5px solid var(--accent1-color);
+    background-color: var(--accent2-color);
+}
+
+.about-hero article img {
+    float: right;
+    width: 150px;
+    margin-left: 20px;
+}
+
+.about-hero article h2 {
+    margin-bottom: 12px;
+    font-size: 1.5rem;
+}
+
+.history-grid {
+    display: grid;
+    grid-template-columns: 1fr 240px 1fr;
+    align-items: center;
+    gap: 24px;
+}
+
+.history-grid img {
+    width: 100%;
+}
+
+.adventures,
+.employees {
+    background-color: var(--accent2-color);
+}
+
+.adventure-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+}
+
+figure {
+    min-width: 0;
+    text-align: center;
+}
+
+.adventure-grid img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+}
+
+figcaption {
+    padding-top: 12px;
+    font-size: 0.9rem;
+}
+
+/* Trips: detailed cards and a complete comparison table. */
+.page-intro {
+    padding: 48px 32px;
+    background-color: var(--accent2-color);
+}
+
+.page-intro h1 {
+    margin-bottom: 20px;
+}
+
+.page-intro > p:last-child {
+    max-width: 65ch;
+}
+
+.trip-grid,
+.employee-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.trip-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #b9ccce;
+}
+
+.trip-card > img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+}
+
+.trip-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 20px;
+}
+
+.trip-content h3 {
+    margin-bottom: 16px;
+}
+
+.trip-content > p:not(.eyebrow) {
+    font-size: 0.95rem;
+}
+
+.trip-content .text-link {
+    margin-top: auto;
+    font-size: 0.9rem;
+}
+
+.trip-facts {
+    width: 100%;
+    margin: 20px 0;
+    padding-top: 12px;
+    border-top: 1px solid #b9ccce;
+    font-size: 0.9rem;
+}
+
+.trip-facts div {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 3px 0;
+}
+
+.trip-facts dd {
+    font-weight: bold;
+}
+
+.trip-comparison {
+    padding-top: 0;
+}
+
+.table-scroll {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 680px;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+caption {
+    padding: 12px;
+    background-color: var(--surface-color);
+    font-weight: bold;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #b9ccce;
+}
+
+thead {
+    color: #fff;
+    background-color: var(--primary-color);
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--accent2-color);
+}
+
+.small-print {
+    margin-top: 16px;
+    font-size: 0.85rem;
+}
+
+.trip-preparation {
+    background-color: var(--accent2-color);
+}
+
+.trip-preparation h2 {
+    margin-bottom: 16px;
+    font-size: 1.65rem;
+}
+
+.contact-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    color: #fff;
+    background-color: var(--primary-color);
+}
+
+.contact-cta .button {
+    flex-shrink: 0;
+}
+
+/* Contact information and form share two columns on desktop. */
+.contact-grid {
+    padding: 40px 32px;
+}
+
+.contact-info {
+    align-self: start;
+    padding: 28px;
+    background-color: var(--accent2-color);
+}
+
+.contact-info h2 {
+    margin-bottom: 20px;
+}
+
+.contact-info address {
+    margin-bottom: 20px;
+    font-style: normal;
+    overflow-wrap: anywhere;
+}
+
+.map-panel {
+    margin-top: 24px;
+    border-top: 1px solid var(--secondary-color);
+}
+
+.map-panel summary {
+    padding: 16px 0;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .contact-map {
     width: 100%;
-    height: 100%;
-    min-height: 400px;
+    height: 300px;
     border: 1px solid var(--secondary-color);
 }
 
-.contact-form,
-.message-field {
-    display: grid;
-    gap: 12px;
+.contact-form {
+    gap: 18px;
 }
 
 .contact-form h2 {
-    font-size: 1.35rem;
+    font-size: 1.8rem;
 }
 
 .form-row {
@@ -252,28 +597,6 @@ footer {
     gap: 12px;
 }
 
-.contact-form input,
-.contact-form textarea,
-.contact-form button {
-    font: inherit;
-}
-
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form textarea {
-    width: 100%;
-    min-width: 0;
-    padding: 10px;
-    border: 1px solid var(--secondary-color);
-    border-radius: 4px;
-    color: var(--primary-color);
-    background-color: #fff;
-}
-
-.contact-form textarea {
-    resize: vertical;
-}
-
 .contact-form fieldset {
     min-width: 0;
     border: 0;
@@ -281,14 +604,14 @@ footer {
 
 .contact-form legend {
     margin-bottom: 8px;
-    font-weight: bold;
 }
 
 .choice {
     display: flex;
     align-items: flex-start;
-    gap: 8px;
+    gap: 10px;
     padding: 6px 0;
+    font-weight: normal;
     line-height: 1.4;
     cursor: pointer;
 }
@@ -301,73 +624,53 @@ footer {
     accent-color: var(--primary-color);
 }
 
-.contact-form button {
-    padding: 12px 20px;
-    border: 2px solid var(--primary-color);
-    border-radius: 4px;
-    color: #fff;
-    background-color: var(--primary-color);
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.contact-form button:hover {
-    color: var(--primary-color);
-    background-color: var(--accent1-color);
-}
-
-a:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-button:focus-visible {
-    outline: 3px solid var(--secondary-color);
-    outline-offset: 3px;
-}
-
-.employee-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
-}
-
 .employee-grid img {
-    display: block;
     width: min(100%, 160px);
-    height: auto;
-    margin: 0 auto 12px;
-    border-radius: 4px;
+    margin: 0 auto;
+    border-radius: 3px;
 }
 
 .employee-grid figcaption {
     font-weight: bold;
-    line-height: 1.5;
 }
 
 .employee-grid span {
     display: block;
-    font-size: 0.9rem;
     font-weight: normal;
 }
 
-@media (max-width: 680px) {
-    header {
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 24px 32px;
+    border-top: 2px solid var(--secondary-color);
+    background-color: var(--surface-color);
+    font-size: 0.85rem;
+}
+
+.socialmedia {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.socialmedia a {
+    padding: 4px;
+    text-decoration: none;
+}
+
+.socialmedia img {
+    width: 36px;
+    height: 36px;
+}
+
+@media (max-width: 800px) {
+    .offerings-grid,
+    .newsletter,
+    .history-grid {
         grid-template-columns: 1fr;
-        justify-items: center;
-        gap: 8px;
-    }
-
-    header nav {
-        flex-wrap: wrap;
-    }
-
-    .history-grid,
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-map {
-        height: 300px;
-        min-height: 0;
     }
 
     .history-grid img {
@@ -375,44 +678,148 @@ button:focus-visible {
         margin: 0 auto;
     }
 
+    .offering img {
+        min-height: 180px;
+        max-height: 260px;
+    }
+
+    .trip-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .trip-card {
+        display: grid;
+        grid-template-columns: 35% minmax(0, 1fr);
+    }
+
+    .trip-card > img {
+        height: 100%;
+    }
+
+    .contact-cta {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+    }
+
+    header nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    header nav a {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+
+    section,
+    .page-intro,
+    .contact-grid {
+        padding: 32px 20px;
+    }
+
+    .home-hero > img {
+        height: 510px;
+    }
+
+    .home-hero::before {
+        inset: auto 0 0;
+        width: 100%;
+        height: 72%;
+    }
+
+    .home-hero h1 {
+        top: 176px;
+        left: 20px;
+        width: calc(100% - 40px);
+        font-size: 2.25rem;
+    }
+
+    .hero-invite {
+        right: 20px;
+        bottom: 32px;
+        left: 20px;
+        width: auto;
+    }
+
+    .hero-invite p {
+        font-size: 1rem;
+    }
+
+    .river-strip {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .offering,
+    .trip-preparation,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .offering img {
+        height: 200px;
+    }
+
+    .about-hero h1 {
+        top: 16px;
+        padding: 12px;
+        font-size: 1.7rem;
+    }
+
+    .about-hero article {
+        position: static;
+        padding: 20px;
+    }
+
+    .about-hero article img {
+        width: 110px;
+    }
+
     .adventure-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .hero article {
-        right: 12px;
-        bottom: 12px;
-        left: 12px;
-        margin: 0;
-        padding: 8px;
+    .trip-card {
+        display: flex;
     }
 
-    .hero article img {
-        width: 80px;
+    .trip-card > img {
+        height: auto;
     }
-}
 
-@media (max-width: 420px) {
+    .trip-comparison {
+        padding-top: 0;
+    }
+
     .employee-grid {
         grid-template-columns: 1fr;
-    }
-
-    .hero h1 {
-        top: 8px;
-        padding: 8px;
-        font-size: 1.2rem;
-    }
-
-    .hero article {
-        position: static;
+        gap: 28px;
     }
 
     footer {
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: column;
+        padding: 24px 20px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 380px) {
+    .newsletter-form,
+    .form-row {
+        grid-template-columns: 1fr;
     }
 
-    .socialmedia {
-        margin-left: 0;
+    .home-hero h1 {
+        font-size: 2rem;
     }
 }
